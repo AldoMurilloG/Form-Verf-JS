@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validación de Formulario con Javascript</title>
+<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<form action="" class="formulario" id="formulario">
+<h3>¿A dónde desea Volar?</h3>
+    <select name="select" id="select">
+        <option value="value1">Buenos Aires</option>
+        <option value="value2" selected>Entre Rios</option>
+        <option value="value3">Formosa</option>
+        <option value="value4">Neuquen</option>
+        <option value="value5">Brasil</option>
+      </select>
+<h3>Fecha vuelo:</h3>
+    <input type="date" value="2017-06-01" />
+
+<h3 style="text-align: center;">Datos del cliente :</h3>
+      <br>
+
+
+        <div class="formulario__grupo" class="hidden" id="grupo__nombre">
+            <label for="nombre" class="formulario__label">Nombre</label>
+                <div class="formulario__grupo-input">
+                 <input type="text" class="formulario__input" name="nombre" id="nombre"
+                    placeholder="John Doe">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+            <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+        </div>
+
+        <div class="formulario__grupo" class="hidden" id="grupo__apellido">
+            <label for="apellidoEsposo" class="formulario__label">Apellido Completo</label>
+                <div class="formulario__grupo-input">
+                 <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Fernandez Fuentes">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+            <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+        </div>
+
+    <!-- Fecha de NACIMIENTO -->
+        <div class="formulario_grupo" id="grupo__fechaNac">
+            <label for="FechaNac" class="formulario__label">Fecha de Nacimiento</label>
+        <div class="formulario__grupo-input">
+            <input type="date" class="formulario__input" name="fechaNac" id="fechaNac">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+            <p class="formulario__input-error">la fecha solo contiene números el formato 2017-06-01 y debe ser menor a una la fecha actual.</p>
+        </div>
+    <!-- Fecha de Nacimiento fin-->
+        
+        <div class="formulario__grupo" id="grupo__correo">
+            <label for="correo" class="formulario__label">Correo Electrónico</label>
+            <div class="formulario__grupo-input">
+                <input type="email" class="formulario__input" name="correo" id="correo"
+                placeholder="correo@correo.com">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+        </div>
+
+        <div class="formulario__grupo" id="grupo__telefono">
+                <label for="telefono" class="formulario__label">Teléfono</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="telefono" id="telefono"
+                placeholder="4491234567">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+                <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+        </div>
+
+        <div class="formulario__grupo" id="grupo__dni">
+            <label for="telefono" class="formulario__label">DNI</label>
+        <div class="formulario__grupo-input">
+            <input type="number" class="formulario__input" name="dni" id="dni"
+            placeholder="44475438">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+            <p class="formulario__input-error">El DNI solo puede contener numeros y son 8 dígitos.</p>
+        </div>
+
+        <div class="formulario__grupo" id="grupo__domicilio">
+            <label for="domicilio" class="formulario__label">Domicilio :</label>
+            <div class="formulario__grupo-input">
+            <input type="text" class="formulario__input" name="domicilio" id="domicilio"
+            placeholder="B° Santa Marita">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El domicilio tiene que ser mas de 5 dígitos y solo puede
+            contener numeros, letras </p>
+        </div>
+
+
+<!-- Datos Extras Sobre acompañante-->
+        <div class="formulario__grupo" id="grupo__terminos">
+            <label>
+                ¿Lleva acompañante?
+                <br>
+                Si : <input type="checkbox" id="checkboxAcompaniado" class="formulario__checkbox" name="checkboxacompaniado">
+                No : <input type="checkbox" id="checkboxSolo" name="checkboxSolo" class="formulario__checkbox">
+            
+                <div id="formularioAcompaniado" class="hidden">
+                    <h3>Información del acompañante</h3>
+
+                    <div class="formulario__grupo" class="hidden" id="grupo__nombreAcom">
+                        <label for="nombreAcom" class="formulario__label">Nombre Completo</label>
+                            <div class="formulario__grupo-input">
+                             <input type="text" class="formulario__input" name="nombreAcom" id="nombreAcom"
+                                placeholder="John Doe">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                        <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                    </div>
+                    
+                    <div class="formulario__grupo" class="hidden" id="grupo__apellidoAcom">
+                        <label for="apellidoAcom" class="formulario__label">Apellido Completo</label>
+                            <div class="formulario__grupo-input">
+                             <input type="text" class="formulario__input" name="apellidoAcom" id="apellidoAcom" placeholder="Fernandez Fuentes">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                        <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                    </div>
+
+                    <div class="formulario__grupo" class="hidden" id="grupo__dniAcom">
+                        <label for="dniAcom" class="formulario__label">DNI Acompañante:</label>
+                            <div class="formulario__grupo-input">
+                             <input type="number" class="formulario__input" name="dniAcom" id="dniAcom" placeholder="Fernandez Fuentes">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                        <p class="formulario__input-error">El DNI tiene que ser 8 dígitos y solo puede contener numeros.</p>
+                    </div>
+                    
+                    <div class="formulario__grupo" id="grupo__telefonoAcom">
+                        <label for="telefono" class="formulario__label">Teléfono</label>
+                    <div class="formulario__grupo-input">
+                        <input type="number" class="formulario__input" name="telefonoAcom" id="telefonoAcom"
+                        placeholder="3874095875">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                        <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+                    </div>
+                    <div class="formulario__grupo" id="grupo__domicilioAcom">
+                        <label for="domicilioAcom" class="formulario__label">Domicilio :</label>
+                        <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="domicilioAcom" id="domicilioAcom"
+                        placeholder="B° Santa Marita">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                        <p class="formulario__input-error">El domicilio tiene que ser mas de 5 dígitos y solo puede
+                        contener numeros, letras </p>
+                    </div>
+
+                </div>
+            </label>
+        </div>
+<!--Fin de datos extras-->
+
+            <div class="formulario__grupo" id="grupo__terminos">
+            <label class="formulario__label">
+            <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+            Acepto los Terminos y Condiciones
+            </label>
+            </div>
+            <div class="formulario__mensaje" id="formulario__mensaje">
+            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+            correctamente. </p>
+            </div>
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" class="formulario__btn">Enviar</button>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado
+            exitosamente!</p>
+            </div>
+
+</form>
+</main>
+<script src="main.js"></script>
+</body>
+</html>
