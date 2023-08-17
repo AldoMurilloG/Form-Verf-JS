@@ -10,6 +10,7 @@ const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
 nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 apelldo:/^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar 
+fechaNac: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/,
 dni: /^\d{8}$/ ,// 8 numeros.
 telefono: /^\d{7,14}$/ ,// 7 a 14 numeros.
 domicilio: /^[a-zA-Z0-9]/, // Letras, numeros
@@ -17,25 +18,27 @@ correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 //Datos de Acompañante
 nombreAcom: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 apellidoAcom: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+fechaNacAcom: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/,
 dniAcom:/^\d{8}$/ ,// 8 numeros.
 telefonoAcom: /^\d{7,14}$/ ,// 7 a 14 numeros.
 domicilioAcom:/^[a-zA-Z0-9]/, // Letras, numeros
-
 }
 
 const campos = {
 nombre: false,
 apellido:false,
+fechaNac: false,
 dni:false,
 telefono: false,
 domicilio:false,
 correo: false,
-
+//Datos de Acompañante
 nombreAcom:false,
 apellidoAcom:false,
+fechaNacAcom:false,
 dniAcom:false,
 telefonoAcom:false,
-domicilioAcom:false
+domicilioAcom:false,
 }
 
 const validarFormulario = (e) => {
@@ -48,6 +51,10 @@ break;
 case "apellido":
 validarCampo(expresiones.nombre, e.target, 'apellido');
 
+break;
+//fecha nacimiento
+case "fechaNac":
+validarCampo(expresiones.fechaNac, e.target, 'fechaNac');
 break;
 //Dni
 case "dni":
@@ -72,28 +79,27 @@ break;
 //domicilio
 case "domicilio":
 validarCampo(expresiones.domicilio, e.target, 'domicilio');
-
 break;
-
+// Acompañante
 case "nombreAcom":
 validarCampo(expresiones.nombreAcom, e.target,'nombreAcom');
-
 break;
 case "apellidoAcom":
 validarCampo(expresiones.apellidoAcom, e.target,'apellidoAcom');
 
 break;
+case "fechaNacAcom":
+validarCampo(expresiones.fechaNacAcom, e.target, 'fechaNacAcom');
+break;
 case "dniAcom":
     validarCampo(expresiones.dniAcom, e.target,'dniAcom');
-
-    break;    
+break;    
 case "telefonoAcom":
     validarCampo(expresiones.telefonoAcom, e.target,'telefonoAcom');
-
-    break;   
+break;   
 case "domicilioAcom":
     validarCampo(expresiones.domicilioAcom, e.target,'domicilioAcom');
-    break;  
+break;  
 }}
 
 
@@ -114,10 +120,8 @@ document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
 document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
 document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
 campos[campo] = false;
- 
 }
 }
-
    
 checkboxAcom.addEventListener('change', function () {
     if (checkboxAcom.checked) {
@@ -138,7 +142,7 @@ input.addEventListener('blur', validarFormulario);
 formulario.addEventListener('submit', (e) => {
 e.preventDefault();
 const terminos = document.getElementById('terminos');
-if(campos.nombre && campos.apellido && campos.dni && campos.telefono && campos.correo && campos.domicilio &&
+if(campos.nombre && campos.apellido && campos.fechaNac && campos.dni && campos.telefono && campos.correo && campos.domicilio &&
 terminos.checked){
 
 //mostrar datos
@@ -161,6 +165,8 @@ console.log("Nombre del Acompañante : ",nombreAcompaniante);
 var apellidoAcompaniante = document.getElementById('apellidoAcom').value;
 console.log("Apellido del Acompañante : ",apellidoAcompaniante);
 var dniAcompaniante = document.getElementById('dniAcom').value;
+var fechaNacAcom = document.getElementById('fechaNacAcom').value;
+console.log("fecha nacimiento del Acompañante : ",fechaNacAcom);
 console.log("DNI del Acompañante : ",apellidoAcompaniante);
 var telefonoAcompaniante = document.getElementById('dniAcom').value;
 console.log("Telefono del Acompañante : ",telefonoAcompaniante);

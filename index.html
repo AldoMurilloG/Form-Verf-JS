@@ -21,7 +21,7 @@ rel="stylesheet">
         <option value="value5">Brasil</option>
       </select>
 <h3>Fecha vuelo:</h3>
-    <input type="date" value="2017-06-01" />
+    <input type="date" value="21/12/2021" />
 
 <h3 style="text-align: center;">Datos del cliente :</h3>
       <br>
@@ -39,23 +39,23 @@ rel="stylesheet">
 
         <div class="formulario__grupo" class="hidden" id="grupo__apellido">
             <label for="apellidoEsposo" class="formulario__label">Apellido Completo</label>
-                <div class="formulario__grupo-input">
+            <div class="formulario__grupo-input">
                  <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Fernandez Fuentes">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
             <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
         </div>
 
-    <!-- Fecha de NACIMIENTO -->
-        <div class="formulario_grupo" id="grupo__fechaNac">
-            <label for="FechaNac" class="formulario__label">Fecha de Nacimiento</label>
-        <div class="formulario__grupo-input">
-            <input type="date" class="formulario__input" name="fechaNac" id="fechaNac">
-            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-        </div>
-            <p class="formulario__input-error">la fecha solo contiene números el formato 2017-06-01 y debe ser menor a una la fecha actual.</p>
-        </div>
-    <!-- Fecha de Nacimiento fin-->
+        <!-- Fecha de NACIMIENTO -->
+            <div class="formulario_grupo" id="grupo__fechaNac">
+                <label for="FechaNac" class="formulario__label">Fecha de Nacimiento</label>
+            <div class="formulario__grupo-input">
+                <input type="date" class="formulario__input" name="fechaNac" id="fechaNac">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+                <p class="formulario__input-error">la fecha solo contiene números el formato 21/12/2021 y debe ser menor a una la fecha actual.</p>
+            </div>
+        <!-- Fecha de Nacimiento fin-->
         
         <div class="formulario__grupo" id="grupo__correo">
             <label for="correo" class="formulario__label">Correo Electrónico</label>
@@ -128,6 +128,16 @@ rel="stylesheet">
                             </div>
                         <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
                     </div>
+        <!-- Fecha de NACIMIENTO -->
+                    <div class="formulario_grupo" id="grupo__fechaNacAcom">
+                        <label for="fechaNacAcom" class="formulario__label">Fecha de Nacimiento</label>
+                    <div class="formulario__grupo-input">
+                        <input type="date" class="formulario__input" name="fechaNacAcom" id="fechaNacAcom">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                        <p class="formulario__input-error">la fecha solo contiene números el formato 21/12/2021 y debe ser menor a una la fecha actual.</p>
+                    </div>
+        <!-- Fecha de Nacimiento fin-->
 
                     <div class="formulario__grupo" class="hidden" id="grupo__dniAcom">
                         <label for="dniAcom" class="formulario__label">DNI Acompañante:</label>

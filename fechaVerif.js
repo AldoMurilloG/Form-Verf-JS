@@ -84,7 +84,7 @@ input.addEventListener('blur', validarFormulario);
 formulario.addEventListener('submit', (e) => {
 e.preventDefault();
 const terminos = document.getElementById('terminos');
-if(campos.nombre && campos.fechaNac && terminos.checked && campos.fechaNacAcom){
+if(campos.nombre && campos.fechaNac && terminos.checked ){
 //mostrar datos
 var nombres = document.getElementById('nombre').value;
 console.log("Nombre :",nombres);
