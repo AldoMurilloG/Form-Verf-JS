@@ -8,6 +8,7 @@ var formularioAcompaniado = document.getElementById('formularioAcompaniado');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
+fechaVuelo: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/,
 nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 apelldo:/^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar 
 fechaNac: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/,
@@ -25,6 +26,7 @@ domicilioAcom:/^[a-zA-Z0-9]/, // Letras, numeros
 }
 
 const campos = {
+fechaVuelo: false,
 nombre: false,
 apellido:false,
 fechaNac: false,
@@ -43,6 +45,10 @@ domicilioAcom:false,
 
 const validarFormulario = (e) => {
 switch (e.target.name) {
+case "fechaVuelo":
+validarCampo(expresiones.fechaVuelo, e.target, 'fechaVuelo');
+break;
+
 //nombre cliente
 case "nombre":
 validarCampo(expresiones.nombre, e.target, 'nombre');
@@ -146,6 +152,8 @@ if(campos.nombre && campos.apellido && campos.fechaNac && campos.dni && campos.t
 terminos.checked){
 
 //mostrar datos
+var fechaVuelo = document.getElementById('fechaVuelo').value;
+console.log("fecha vuelo : ",fechaVuelo); 
 var nombres = document.getElementById('nombre').value;
 console.log("Nombre :",nombres);
 var apellido = document.getElementById('apellido').value;
