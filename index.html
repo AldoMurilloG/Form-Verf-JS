@@ -12,18 +12,24 @@ rel="stylesheet">
 <body>
 <main>
 <form action="" class="formulario" id="formulario">
-<h3>¿A dónde desea Volar?</h3>
-    <select name="select" id="miSelect">
-        <option value="value1">Buenos Aires</option>
-        <option value="value2" selected>Entre Rios</option>
-        <option value="value3">Formosa</option>
-        <option value="value4">Neuquen</option>
-        <option value="value5">Brasil</option>
+    <div class="formulario_grupo" id="grupo__fechaNac">
+        <label for="FechaNac" class="formulario__label">¿A dónde desea Volar?</label>
+    <div>
+    <select name="select" id="miSelect" class="formulario__input">
+        <option value="" selected>Selecciona una opción</option>
+        <option value="opcion1">Buenos Aires</option>
+        <option value="opcion2">Entre Rios</option>
+        <option value="opcion3">Formosa</option>
+        <option value="opcion4">Neuquen</option>
+        <option value="opcion5">Brasil</option>
       </select>
+      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+    </div>
+        <p class="formulario__input-error">la fecha solo contiene números el formato 21/12/2021 y debe ser menor a una la fecha actual.</p>
+    </div>
 <h3>Fecha vuelo:</h3>
 <!-- Fecha de NACIMIENTO -->
     <div class="formulario_grupo" id="grupo__fechaVuelo">
-        <label for="fechaVuelo" class="formulario__label">Fecha de Nacimiento</label>
     <div class="formulario__grupo-input">
         <input type="date" class="formulario__input" name="fechaVuelo" id="fechaVuelo">
         <i class="formulario__validacion-estado fas fa-times-circle"></i>

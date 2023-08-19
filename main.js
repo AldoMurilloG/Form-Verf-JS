@@ -129,6 +129,24 @@ campos[campo] = false;
 }
 }
    
+var select = document.getElementById("miSelect");
+var mensaje = document.getElementById("mensaje");
+
+select.addEventListener("change", function() {
+  var selectedValue = select.value;
+
+  if (selectedValue === "") {
+    document.getElementById(`#miSelect`).classList.add('formulario__grupo-incorrecto');
+    document.getElementById(`#miSelect`).classList.remove('formulario__grupo-correcto');
+    document.querySelector(`#miSelect i`).classList.add('fa-times-circle');
+    document.querySelector(`#miSelect i`).classList.remove('fa-check-circle');
+    document.querySelector(`#miSelect .formulario__input-error`).classList.add('formulario__input-error-activo');
+    mensaje.textContent = "Por favor, selecciona una opción.";
+  } else {
+    console.log( "Has seleccionado la opción: " + selectedValue );
+  }
+});
+
 checkboxAcom.addEventListener('change', function () {
     if (checkboxAcom.checked) {
         formularioAcompaniado.classList.remove('hidden');
